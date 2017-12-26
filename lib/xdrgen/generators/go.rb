@@ -117,7 +117,7 @@ module Xdrgen
           next if arm.void?
           out.puts   <<-EOS.strip_heredoc
             // Must#{name arm} retrieves the #{name arm} value from the union,
-            // panicing if the value is not set.
+            // panicking if the value is not set.
             func (u #{name typedef}) Must#{name arm}() #{reference arm.type} {
               return #{name union}(u).Must#{name arm}()
             }
@@ -467,7 +467,7 @@ module Xdrgen
 
         <<-EOS.strip_heredoc
           // Must#{name arm} retrieves the #{name arm} value from the union,
-          // panicing if the value is not set.
+          // panicking if the value is not set.
           func (u #{name arm.union}) Must#{name arm}() #{reference arm.type} {
             val, ok := u.Get#{name arm}()
 
